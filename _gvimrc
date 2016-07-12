@@ -1,0 +1,25 @@
+
+
+
+" ビープの設定
+"ビープ音すべてを無効にする
+set visualbell t_vb=
+set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
+
+
+" 画面表示の設定
+set cmdheight=1    " メッセージ表示欄を2行確保
+
+
+" マウスの設定
+set mouse=nv
+
+" フォントの設定
+set guifont=Ricty_Diminished:h12
+
+
+" カラースキームの設定
+"colorscheme twilight
+colorscheme jellybeans
+hi Comment     gui=NONE
+
