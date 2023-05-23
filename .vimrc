@@ -91,7 +91,8 @@ set splitbelow
 
 " 文字コード自動判別
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fenc=utf-8
+set fencs=iso-2022-jp,euc-jp,cp932
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
@@ -137,6 +138,12 @@ cnoremap <C-y> "yy
 vnoremap / y/<C-R>=escape(@", '\\.*$^[]')<CR>
 vnoremap gr y:vimgrep /<C-R>=escape(@", '\\.*$^[]')<CR>/gj 
 nnoremap <F9> :cr<C-r>=line('.')<CR><CR>
+
+
+" 単語検索時に一つ戻す
+"nnoremap * *N
+nnoremap * viw"zyk$/<C-R>z<CR>
+
 
 " <C-L>でハイライト表示
 vmap <C-L> /<CR>N
@@ -191,6 +198,10 @@ function! s:my_highlights()
   let w:m1 = matchadd('ZenkakuSpace', '　')
   let w:m2 = matchadd('WhitespaceEOL', '\s\+$')
 endfunction
+
+
+autocmd BufRead,BufNewFile *.bdy setfiletype sql
+autocmd BufRead,BufNewFile *.def setfiletype sql
 
 "------------------------------------------------------------
 " ウィンドウ関連
